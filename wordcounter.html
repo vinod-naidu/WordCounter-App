@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="myscripts.js"></script>
+</head>
+<body>
+    <div class="header">
+        Word & Character Counter
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <textarea rows="20" id="text-content"></textarea>
+        </div>
+        <div class="count">
+           <div>
+            <h4 id="word-count">0</h4>
+            <p>Words</p>
+           </div> 
+           <div>
+            <h4 id="char-count">0</h4>
+            <p>Characters</p>
+           </div> 
+        </div>
+    </div>
+    <script>
+        let textareaele=document.getElementById('text-content')
+        let wordcountele=document.getElementById('word-count')
+        let charcountele=document.getElementById('char-count')
+        let content='';
+         textareaele.addEventListener(
+            'input' ,() => {
+                content=textareaele.value;
+                charcountele.innerHTML=content.length;
+                let text=content.trim()
+                let words=text.split(/\s/).length;
+                wordcountele.innerHTML=words;
+
+            }
+        )
+    </script>
+    
+</body>
+</html>
